@@ -81,4 +81,4 @@ export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-. `brew --prefix`/etc/profile.d/z.sh
+. $HOME/z/z.sh
