@@ -1,0 +1,6 @@
+
+[dev/pair]
+checkout = git clone 'https://github.com/rpallas/pair.git' 'pair'
+
+[dev/express-autoroute-json]
+checkout = git clone 'https://github.com/rpallas/express-autoroute-json.git' 'express-autoroute-json'
