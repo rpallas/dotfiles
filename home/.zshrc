@@ -82,3 +82,5 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 . $HOME/z/z.sh
+
+homeshick --quiet refresh
