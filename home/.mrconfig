@@ -58,3 +58,6 @@ checkout = git clone 'git@gitlab.piksel.com:sequoia-poc/esb-client.git' 'esb-cli
 
 [dev/sequoia/sequoia-qa/sequoia-qa-tests]
 checkout = git clone 'git@gitlab.piksel.com:sequoia-qa/sequoia-qa-tests.git' 'sequoia-qa-tests'
+
+[dev/sequoia/sequoia-foundations/sequoia-service-monitor]
+checkout = git clone 'git@gitlab.piksel.com:sequoia-foundations/sequoia-service-monitor.git' 'sequoia-service-monitor'
