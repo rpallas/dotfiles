@@ -74,14 +74,21 @@ alias ls='ls -al'
 alias drone_rerun='git commit --amend --reuse-message HEAD && git push --force'
 alias hs='homeshick'
 alias gs='git status'
+alias e='ember'
+alias em='ember'
 
-export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+#export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+### Added gnu-tar to path
+export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 . $HOME/z/z.sh
 
 homeshick --quiet pull
 homeshick --quiet refresh
+eval "`npm completion`"
+eval "$(rbenv init -)"

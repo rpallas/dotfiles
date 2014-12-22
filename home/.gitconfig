@@ -1,11 +1,6 @@
 [core]
 	excludesfile = ~/.gitignore_global
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+	editor = /usr/local/bin/slap
 [user]
 	name = Robbie Pallas
 	email = robbie.pallas@piksel.com
@@ -16,3 +11,27 @@
 	default = simple
 [pull]
 	rebase = true
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[diff]
+    tool = bcomp
+[difftool]
+    prompt = false
+[difftool "bcomp"]
+    trustExitCode = true
+    cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE"
+[merge]
+    tool = bcomp
+[mergetool]
+    prompt = false
+[mergetool "bcomp"]
+    trustExitCode = true
+    cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
