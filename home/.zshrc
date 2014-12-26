@@ -88,7 +88,5 @@ export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 . $HOME/z/z.sh
 
-homeshick --quiet pull
-homeshick --quiet refresh
 eval "`npm completion`"
 eval "$(rbenv init -)"
