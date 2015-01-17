@@ -71,11 +71,12 @@ alias gup='git smart-pull'
 alias gsl='git smart-log'
 alias gsm='git smart-merge'
 alias ls='ls -al'
-alias drone_rerun='git commit --amend --reuse-message HEAD && git push --force'
+alias fake_commit='git commit --amend --reuse-message HEAD && git push --force'
 alias hs='homeshick'
 alias gs='git status'
 alias e='ember'
 alias em='ember'
+alias mgs='mgit st -sb'
 
 #export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
