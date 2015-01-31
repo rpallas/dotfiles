@@ -78,6 +78,7 @@ alias e='ember'
 alias em='ember'
 alias mgs='mgit st -sb'
 alias mgp='mgit pull --rebase'
+alias gql='git qlog -n 10'
 alias m='minion'
 
 #export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
