@@ -97,3 +97,8 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 eval "`npm completion`"
 # Initialize rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# If pm2-gui isn't running then start it as a background process
+if [ `ps aux | grep pm2-gui | wc -l` -eq 1 ] ; then 
+  pm2-gui start > /dev/null 2>&1 &
+fi
