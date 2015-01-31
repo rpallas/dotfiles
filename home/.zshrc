@@ -95,4 +95,5 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 . $HOME/z/z.sh
 
 eval "`npm completion`"
-eval "$(rbenv init -)"
+# Initialize rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
