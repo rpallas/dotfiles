@@ -70,6 +70,8 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 alias gup='git smart-pull'
 alias gsl='git smart-log'
 alias gsm='git smart-merge'
+alias gql='git qlog -n 10'
+alias grl='git reflog'
 alias ls='ls -al'
 alias fake_commit='git commit --amend --reuse-message HEAD && git push --force'
 alias hs='homeshick'
@@ -78,7 +80,6 @@ alias e='ember'
 alias em='ember'
 alias mgs='mgit st -sb'
 alias mgp='mgit pull --rebase'
-alias gql='git qlog -n 10'
 alias m='minion'
 
 #export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
