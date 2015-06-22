@@ -95,6 +95,8 @@ export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 . $HOME/z/z.sh
 
+source /usr/local/bin/virtualenvwrapper.sh
+
 eval "`npm completion`"
 # Initialize rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
