@@ -97,6 +97,8 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 source /usr/local/bin/virtualenvwrapper.sh
 
+ulimit -n 2560
+
 eval "`npm completion`"
 # Initialize rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
