@@ -81,6 +81,9 @@ alias em='ember'
 alias mgs='mgit st -sb'
 alias mgp='mgit pull --rebase'
 alias m='minion'
+alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
+alias oops='fuck'
+alias fix='fuck'
 
 #export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
