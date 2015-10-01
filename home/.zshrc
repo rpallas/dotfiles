@@ -100,7 +100,8 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 source /usr/local/bin/virtualenvwrapper.sh
 
-ulimit -n 2560
+ulimit -n 65536
+ulimit -u 2048
 
 eval "`npm completion`"
 # Initialize rbenv
