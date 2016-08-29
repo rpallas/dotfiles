@@ -109,3 +109,8 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if [ `ps aux | grep pm2-gui | wc -l` -eq 1 ] ; then 
   pm2-gui start > /dev/null 2>&1 &
 fi
+
+export SEQ_TEST_CASSANDRA_URI=localhost
+export PATH="/usr/local/sbin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
