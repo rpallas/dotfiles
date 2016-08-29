@@ -110,6 +110,9 @@ if [ `ps aux | grep pm2-gui | wc -l` -eq 1 ] ; then
   pm2-gui start > /dev/null 2>&1 &
 fi
 
+# use screen with 256 for tmux support
+export TERM=screen-256color
+
 export SEQ_TEST_CASSANDRA_URI=localhost
 export PATH="/usr/local/sbin:$PATH"
 
