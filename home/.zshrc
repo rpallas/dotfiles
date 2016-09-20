@@ -81,7 +81,7 @@ alias em='ember'
 alias mgs='mgit st -sb'
 alias mgp='mgit pull --rebase'
 alias gcan='gc --amend -a --no-edit'
-
+alias dirst='tree -I node_modules -L'
 
 #export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
