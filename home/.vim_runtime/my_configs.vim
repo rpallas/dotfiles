@@ -97,3 +97,17 @@ noremap <C-±> :NERDTreeToggle<cr>
 " Don't prompt to save session when closing vim
 :let g:session_autosave = 'no'
 
+" add syntax highlighting for handlebars
+au BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars
+
+" this cabbrev uses CTRL-R CTRL-W to get the word under the cursor, limiting the
+" search to files of the same type using expand("%:e"), and moving the cursor on
+" the command-line to be just before the file list using <C-Left>, so that you
+" can easily specify a different search location. This method is nice because you
+" can either type :lvim<Enter> to perform the default search, or :lvim<Space> to
+" enter the default search into the command line, but leave it there for editing
+cabbrev lvim
+      \ lvim /\<lt><C-R><C-W>\>/gj
+      \ *<C-R>=(expand("%:e")=="" ? "" : ".".expand("%:e"))<CR>
+      \ <Bar> lw
+      \ <C-Left><C-Left><C-Left>
