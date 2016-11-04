@@ -30,6 +30,27 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
+" show tabs and spaces as character
+" :set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:.
+" :set list
+
+function! Whitespace()
+    if !exists('b:ws')
+        highlight Conceal ctermbg=NONE ctermfg=240 cterm=NONE guibg=NONE guifg=#585858 gui=NONE
+        highlight link Whitespace Conceal
+        let b:ws = 1
+    endif
+
+    syntax clear Whitespace
+    syntax match Whitespace / / containedin=ALL conceal cchar=·
+    setlocal conceallevel=2 concealcursor=c
+endfunction
+
+augroup Whitespace
+    autocmd!
+    autocmd BufEnter,WinEnter * call Whitespace()
+augroup END
+
 " shortcut for yankring
 nnoremap <leader>y :YRShow<CR>
 
