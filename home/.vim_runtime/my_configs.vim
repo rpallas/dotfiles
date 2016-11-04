@@ -45,13 +45,13 @@ set gfn=Source\ Code\ Pro:h13,Menlo:h13
 
 " Create special split hanlding
 " from https://www.destroyallsoftware.com/file-navigation-in-vim.html
-set winwidth=84
+" set winwidth=84
 " We have to have a winheight bigger than we want to set winminheight. But if
 " we set winheight to be huge before winminheight, the winminheight set will
 " fail.
-set winheight=5
-set winminheight=5
-set winheight=999
+" set winheight=5
+" set winminheight=5
+" set winheight=999
 
 " text wrap setup
 set nowrap
