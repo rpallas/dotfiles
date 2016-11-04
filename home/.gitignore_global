@@ -3,3 +3,6 @@
 .idea/
 processes.json
 .vscode/
+
+# might want to remove this if we decide to include the lock file
+Gemfile.lock
