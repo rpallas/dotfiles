@@ -14,6 +14,7 @@
 	st = status
 	qlog = !git --no-pager log --decorate=short --pretty=oneline --abbrev-commit --graph
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+	squashLast2 = !git reset HEAD~1 && git commit --amend -a --no-edit
 [push]
 	default = simple
 [pull]
