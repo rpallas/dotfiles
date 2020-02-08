@@ -50,4 +50,8 @@
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
-	required = true
+  required = true
+
+[credential]
+	UseHttpPath = true
+	helper = "!aws --profile personal codecommit credential-helper "
