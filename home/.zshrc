@@ -1,11 +1,11 @@
-# Path to your oh-my-zsh configuration.
+# Path to your oh-my-zsh configuration
 ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="steeef"
+ZSH_THEME="bureau"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -45,7 +45,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git copydir dirhistory themes zsh-syntax-highlighting)
+plugins=(git brew copydir dirhistory themes history osx zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -53,6 +53,14 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
+
+# Go development
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+test -d "${GOPATH}" || mkdir "${GOPATH}"
+test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -67,12 +75,13 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+alias build='rm -rf node_modules && npm i'
 alias gup='git smart-pull'
 alias gsl='git smart-log'
 alias gsm='git smart-merge'
 alias gql='git qlog -n 10'
 alias grl='git reflog'
-alias ls='ls -al'
+# alias ls='ls -al'
 alias fake_commit='git commit --amend --reuse-message HEAD && git push --force'
 alias hs='homeshick'
 alias gs='git status'
@@ -82,6 +91,20 @@ alias mgs='mgit st -sb'
 alias mgp='mgit pull --rebase'
 alias gcan='gc --amend -a --no-edit'
 alias dirst='tree -I node_modules -L'
+alias gpf='git push --force-with-lease'
+alias kc='kubectl'
+alias mk='minikube'
+alias kcsc='kubectl config set-context $(kubectl config current-context)'
+alias node6='npx node@6'
+alias node8='npx node@8'
+alias node10='npx node@10'
+alias nodelts='npx node@lts'
+alias el='exa --long'
+alias elt='exa --long --tree -I "node_modules|coverage"'
+
+eksAdminToken(){
+  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}')
+}
 
 #export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
@@ -94,15 +117,27 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+### Added gnu-tar to path
+export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 . $HOME/z/z.sh
 
-source /usr/local/bin/virtualenvwrapper.sh
+# Enable kubectl autocomplete
+source <(kubectl completion zsh)
 
-ulimit -n 65536
-ulimit -u 2048
+#source /usr/local/bin/virtualenvwrapper.sh
+
+ulimit -n 12288
+ulimit -u 1418
 
 eval "`npm completion`"
 # Initialize rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # If pm2-gui isn't running then start it as a background process
@@ -113,7 +148,16 @@ fi
 # use screen with 256 for tmux support
 export TERM=screen-256color
 
-export SEQ_TEST_CASSANDRA_URI=localhost
 export PATH="/usr/local/sbin:$PATH"
 
+### LESS ###
+## Enable syntax-highlighting in less.
+## brew install source-highlight
+## First, add these two lines to ~/.bashrc
+export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+export LESS=" -R "
+alias less='less -m -N -g -i -J --underline-special --SILENT'
+#alias more='less'
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
