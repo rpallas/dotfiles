@@ -74,6 +74,7 @@ test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+ssh-add -K ~/.ssh/id_rsa_github
 
 alias build='rm -rf node_modules && npm i'
 alias gup='git smart-pull'
