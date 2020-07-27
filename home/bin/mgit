@@ -1,0 +1,113 @@
+#!/usr/bin/env ruby
+CLEAR = "\e[0m"
+BOLD = "\e[1m"
+RED = "\e[31m"
+GREEN = "\e[32m"
+YELLOW = "\e[33m"
+WHITE = "\e[37m"
+
+MGIT_RC_FILENAME = '.mgitrc'
+
+def color(text, color=:white, bold=false)
+  color = self.class.const_get(color.to_s.upcase) if color.is_a?(Symbol)
+  bold  = bold ? BOLD : ""
+  "#{bold}#{color}#{text}#{CLEAR}"
+end
+
+def shellescape(str)
+  # An empty argument will be skipped, so return empty quotes.
+  return "''" if str.empty?
+
+  str = str.dup
+
+  # Process as a single byte sequence because not all shell
+  # implementations are multibyte aware.
+  str.gsub!(/([^A-Za-z0-9_\-.,:\/@\n])/n, "\\\\\\1")
+
+  # A LF cannot be escaped with a backslash because a backslash + LF
+  # combo is regarded as line continuation and simply ignored.
+  str.gsub!(/\n/, "'\n'")
+
+  return str
+end
+
+require 'optparse'
+
+options = { :follow_symlinks => false, :read => true, :store => false }
+opts = OptionParser.new do |opts|
+  opts.banner = "Usage: #{$0} [options] [command]"
+  opts.banner = "Runs supplied command on multiple git repositories"
+
+  opts.on("-P", "--physical", "Do not follow symlinks") do
+    options[:follow_symlinks] = false
+  end
+
+  opts.on("-L", "--follow-symlinks", "Follows symlinks up to one level") do
+    options[:follow_symlinks] = true
+  end
+
+  opts.on("-B", "--bare", "Run bare, i.e. don't prefix command with git") do
+    options[:bare] = true
+  end
+
+  opts.on("-S", "--store", "Store the list of repositories in the current directory as .mgitrc") do
+    options[:store] = true
+  end
+
+  opts.on("-I", "--ignore", "Ignore the list of repositories in the current directory as .mgitrc") do
+    options[:read] = false
+    options[:store] = false
+  end
+
+  opts.on("-D", "--dir DIR", "Path to cwd for the command") do |dir|
+    options[:dir] = dir
+  end
+
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit
+  end
+end
+opts.order!
+cmd = ARGV.collect {|x| shellescape(x) }.join(" ")
+
+git_repos = []
+
+if options[:read] && File.exist?(MGIT_RC_FILENAME)
+  File.open(MGIT_RC_FILENAME) do |f|
+    f.each_line do |line|
+      git_repos << line.chomp
+    end
+  end
+end
+
+if git_repos.empty?
+  glob = ''
+  glob << '**/*/' if options[:follow_symlinks]
+  glob << '**/.git'
+
+  git_repos = Dir[glob].collect { |f| File.dirname(f) }.sort
+  stems = git_repos.collect { |f| File.join(f, '')}
+  git_repos.delete_if { |f| f.start_with?(*stems) }
+end
+
+if options[:store]
+  File.open(MGIT_RC_FILENAME, 'w+') do |f|
+    f.puts(git_repos)
+  end
+end
+
+if cmd == ''
+  # puts "found the following git repos:"
+  git_repos.each { |d| puts "#{d}" }
+else
+  git_repos.each do |d|
+    Dir.chdir "#{d}/#{options[:dir]}" do
+      command = ""
+      command << "git " if !options[:bare]
+      command << cmd
+      puts "#{color(d, :yellow, true)}: #{command}"
+      system command
+    end
+  end
+end

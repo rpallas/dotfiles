@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+if [ "$#" -eq 0 ]
+then
+  echo "usage: awscredsync <aws-profile>"
+  exit 1
+fi
+
+PROFILE=$1
+
+
+# clear and re populate the cli cache
+# we need to clear the cache to remove other sso logins - otherwise can't pick between them
+rm -f ~/.aws/cli/cache/*   
+aws --profile $PROFILE s3 ls > /dev/null 2>&1
+
+# sync credentials from the cli cache
+aws --profile $PROFILE configure set aws_access_key_id $(cat ~/.aws/cli/cache/* | jq -r 'select(.ProviderType=="sso") | .Credentials.AccessKeyId')
+aws --profile $PROFILE configure set aws_secret_access_key $(cat ~/.aws/cli/cache/* | jq -r 'select(.ProviderType=="sso") | .Credentials.SecretAccessKey')
+aws --profile $PROFILE configure set aws_session_token $(cat ~/.aws/cli/cache/* | jq -r 'select(.ProviderType=="sso") | .Credentials.SessionToken')
+
+echo awscredsync done
+

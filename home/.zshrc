@@ -42,6 +42,9 @@ ZSH_THEME="bureau"
 # yyyy-mm-dd
 HIST_STAMPS="mm/dd/yyyy"
 
+# https://github.com/ohmyzsh/ohmyzsh/issues/6835#issuecomment-390216875
+ZSH_DISABLE_COMPFIX=true
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -74,7 +77,7 @@ test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-ssh-add -K ~/.ssh/id_rsa_github
+# ssh-add -K ~/.ssh/id_rsa_github
 
 alias build='rm -rf node_modules && npm i'
 alias gup='git smart-pull'
