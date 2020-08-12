@@ -48,7 +48,7 @@ ZSH_DISABLE_COMPFIX=true
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew copydir dirhistory themes history osx zsh-syntax-highlighting)
+plugins=(git brew copydir dirhistory themes history osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -167,4 +167,4 @@ alias less='less -m -N -g -i -J --underline-special --SILENT'
 #alias more='less'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
