@@ -114,8 +114,8 @@ eksAdminToken(){
 }
 
 #export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
-
-. /usr/local/bin/aws_zsh_completer.sh
+autoload bashcompinit && bashcompinit
+complete -C '/usr/local/bin/aws_completer' aws
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
