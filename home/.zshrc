@@ -135,7 +135,7 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 . "$HOME/bin/z.sh"
 
 # Enable kubectl autocomplete
-source <(kubectl completion zsh)
+#source <(kubectl completion zsh)
 
 #source /usr/local/bin/virtualenvwrapper.sh
 
