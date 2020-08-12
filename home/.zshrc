@@ -85,6 +85,9 @@ alias gsl='git smart-log'
 alias gsm='git smart-merge'
 alias gql='git qlog -n 10'
 alias grl='git reflog'
+# brew install git-when-merged - it tells you the commit that merged another commit
+alias gwm='git when-merged --abbrev 7'
+
 # alias ls='ls -al'
 alias fake_commit='git commit --amend --reuse-message HEAD && git push --force'
 alias hs='homeshick'
