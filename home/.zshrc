@@ -131,8 +131,8 @@ export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-. $HOME/z/z.sh
+# setup rupa/z
+. "$HOME/bin/z.sh"
 
 # Enable kubectl autocomplete
 source <(kubectl completion zsh)
