@@ -123,9 +123,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### Added gnu-tar to path
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 ### Added gnu-tar to path
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 
