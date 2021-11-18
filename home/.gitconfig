@@ -55,3 +55,5 @@
 [credential]
 	UseHttpPath = true
 	helper = "!aws --profile personal codecommit credential-helper "
+[rerere]
+	enabled = true
