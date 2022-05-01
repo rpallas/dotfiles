@@ -24,20 +24,20 @@
   clean = git media clean %f
   smudge = git media smudge %f
 [diff]
-    tool = bcomp
+  tool = bcomp
   colorMoved = zebra
 [difftool]
-    prompt = false
+  prompt = false
 [difftool "bcomp"]
-    trustExitCode = true
-    cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE"
+  trustExitCode = true
+  cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE"
 [merge]
-    tool = bcomp
+  tool = bcomp
 [mergetool]
-    prompt = false
+  prompt = false
 [mergetool "bcomp"]
-    trustExitCode = true
-    cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+  trustExitCode = true
+  cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =
