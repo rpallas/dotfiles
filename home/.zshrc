@@ -11,6 +11,9 @@ ZSH_THEME="bureau"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# You may need to manually set your language environment
+export LANG=en_GB.UTF-8
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -42,9 +45,6 @@ ZSH_THEME="bureau"
 # yyyy-mm-dd
 HIST_STAMPS="mm/dd/yyyy"
 
-# https://github.com/ohmyzsh/ohmyzsh/issues/6835#issuecomment-390216875
-ZSH_DISABLE_COMPFIX=true
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -56,8 +56,8 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
-# UKTV
-source ~/.uktv-env
+# https://github.com/ohmyzsh/ohmyzsh/issues/6835#issuecomment-390216875
+ZSH_DISABLE_COMPFIX=true
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -65,6 +65,10 @@ source ~/.uktv-env
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 # ssh-add -K ~/.ssh/id_rsa_github
+
+# Example aliases
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
 
 alias gup='git smart-pull'
 alias gsl='git smart-log'
