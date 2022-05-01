@@ -89,6 +89,8 @@ alias dirst='tree -I node_modules -L'
 alias gpf='git push --force-with-lease'
 alias el='exa --long'
 alias elt='exa --long --tree -I "node_modules|coverage"'
+alias htop='sudo htop'
+
 
 #export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 autoload bashcompinit && bashcompinit
