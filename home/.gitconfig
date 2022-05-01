@@ -1,30 +1,31 @@
 [core]
-	excludesfile = ~/.gitignore_global
-	editor = /usr/bin/vim
+  excludesfile = ~/.gitignore_global
+  editor = /usr/bin/vim
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
 [user]
-	name = Robbie Pallas
+  name = Robbie Pallas
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	st = status
-	qlog = !git --no-pager log --decorate=short --pretty=oneline --abbrev-commit --graph
-	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
-	squashLast2 = !git reset HEAD~1 && git commit --amend -a --no-edit
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  st = status
+  qlog = !git --no-pager log --decorate=short --pretty=oneline --abbrev-commit --graph
+  alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+  squashLast2 = !git reset HEAD~1 && git commit --amend -a --no-edit
 [push]
-	default = simple
+  default = simple
 [pull]
-	rebase = true
+  rebase = true
 [filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
 [diff]
     tool = bcomp
+  colorMoved = zebra
 [difftool]
     prompt = false
 [difftool "bcomp"]
@@ -38,22 +39,26 @@
     trustExitCode = true
     cmd = "/usr/local/bin/bcomp" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
 [include]
   path=.gitconfig_local
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 [filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
+  clean = git hawser clean %f
+  smudge = git hawser smudge %f
   required = true
 
 [credential]
-	UseHttpPath = true
-	helper = "!aws --profile personal codecommit credential-helper "
+  UseHttpPath = true
+  helper = "!aws --profile personal codecommit credential-helper "
 [rerere]
-	enabled = true
+  enabled = true
+[init]
+  defaultBranch = master
+[fetch]
+  prune = true
