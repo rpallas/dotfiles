@@ -1,1 +1,0 @@
-.mongo_hacker/mongo_hacker.js
