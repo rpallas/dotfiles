@@ -99,7 +99,8 @@ complete -C '/usr/local/bin/aws_completer' aws
 ### Added gnu-tar to path
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
+source "/opt/homebrew/opt/homeshick/homeshick.sh"
 
 # setup rupa/z
 . "$HOME/bin/z.sh"
@@ -122,4 +123,4 @@ alias less='less -m -N -g -i -J --underline-special --SILENT'
 #alias more='less'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
