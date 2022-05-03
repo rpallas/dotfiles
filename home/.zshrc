@@ -108,6 +108,7 @@ source "/opt/homebrew/opt/homeshick/homeshick.sh"
 ulimit -n 12288
 ulimit -u 1418
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "`npm completion`"
 
 # use screen with 256 for tmux support
@@ -117,7 +118,7 @@ export TERM=screen-256color
 ## Enable syntax-highlighting in less.
 ## brew install source-highlight
 ## First, add these two lines to ~/.bashrc
-export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+export LESSOPEN="| /opt/homebrew/Cellar/source-highlight/3.1.9_5/bin/src-hilite-lesspipe.sh %s"
 export LESS=" -R "
 alias less='less -m -N -g -i -J --underline-special --SILENT'
 #alias more='less'
