@@ -102,6 +102,15 @@ export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
 source "/opt/homebrew/opt/homeshick/homeshick.sh"
 
+# Ruby
+# pre-reqisites:
+# `brew install chruby ruby-install`
+# `ruby-install ruby`
+# `zsh`
+# `chruby 3.1.2`
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+
 # setup rupa/z
 . "$HOME/bin/z.sh"
 
