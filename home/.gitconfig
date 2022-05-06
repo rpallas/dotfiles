@@ -62,3 +62,5 @@
   defaultBranch = master
 [fetch]
   prune = true
+[color]
+	ui = auto
